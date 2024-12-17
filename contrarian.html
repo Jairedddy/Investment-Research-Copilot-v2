@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contrarian Signal</title>
+    <link rel="icon" href="https://raw.githubusercontent.com/gramener/assets/main/straive-favicon.svg">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        body {
+            font-size: 0.9rem;
+        }
+
+        .container {
+            max-width: max-content;
+            align-items: center;
+            margin: 40px auto;
+            padding: 40px;
+            background-color: white;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .text-container {
+            flex: 1;
+            margin-right: 40px;
+            max-width: 75%;
+        }
+
+        .chart-container {
+            flex: 1;
+            text-align: center;
+            max-width: 75%;
+            margin-top: 100px; /* Adjust this value to align with Framework Analysis */
+        }
+
+        .key-insight {
+            background-color: #edece8;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            border: 1px solid grey;
+        }
+
+        .key-insight h2 {
+            font-weight: bold;
+        }
+
+        .analysis-section {
+            margin-bottom: 40px;
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 600;
+            color: black;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+            text-align: center;
+            color: black;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #37474f;
+            padding-bottom: 15px;
+            color: black;
+        }
+
+        h3 {
+            font-size: 1.4em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            color: black;
+        }
+
+        h4 {
+            font-style: italic;
+            color: black;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-left: 20px;
+            color: black;
+        }
+        ul ul {
+            list-style-type: circle;
+            padding-left: 20px;
+            margin-left: 20px;
+        }
+
+        .analysis-section p {
+            color: black;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #37474f;
+            margin: 30px 0;
+        }
+        .navbar-brand{
+            font-size: 1.25rem;
+        }
+        .display-1{
+            font-size: 3rem;
+        }
+
+        .table-container {
+            background-color: #f9f9f9; /* Light background for the container */
+            border-radius: 12px; /* Rounded corners */
+            padding: 20px; /* Padding around the content */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+            margin-bottom: 40px; /* Space below the container */
+        }
+
+        table {
+            width: 100%; /* Full width */
+            border-collapse: collapse; /* Remove space between borders */
+            margin-top: 20px; /* Space above the table */
+        }
+
+        th, td {
+            padding: 12px; /* Padding inside cells */
+            text-align: left; /* Align text to the left */
+            border-bottom: 1px solid #ddd; /* Light border below each row */
+        }
+
+        th {
+            background-color: #37474f; /* Dark background for header */
+            color: white; /* White text for header */
+            font-weight: bold; /* Bold text for header */
+        }
+
+        tr:hover {
+            background-color: #e0f7fa; /* Light blue background on hover */
+        }
+
+        td {
+            background-color: #ffffff; /* White background for cells */
+            color: #333; /* Dark text color */
+        }
+
+        td strong {
+            color: #007bff; /* Blue color for strong text */
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark"">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/index.html"><b>Dashboard ></b> <a class="navbar-brand" href="contrarian.html" style="text-decoration: underline;">Contrarian Signal</a></a>
+          <button disabled="true" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="nav-item dropdown ms-auto" role="group" aria-label="Toggle dark mode" title="Toggle Dark Mode">
+              <button class="dark-theme-toggle btn btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Toggle theme (light)">
+                <i class="bi bi-circle-half"></i> <span class="d-lg-none ms-2">Toggle theme</span>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><button class="dropdown-item active" data-bs-theme-value="light"><i class="me-2 bi bi-sun-fill"></i> Light</button></li>
+                <li><button class="dropdown-item" data-bs-theme-value="dark"><i class="me-2 bi bi-moon-stars-fill"></i> Dark</button></li>
+                <li><button class="dropdown-item"><i class="me-2 bi bi-circle-half"></i> Auto</button></li>
+              </ul>
+            </div>
+          </div>
+          <button class="btn btn-outline-light ms-2" onclick="window.location.href='https://docsearch.straivedemo.com/irc2/'">Chat with AI</button>          
+        </div>
+    </nav>
+    <h1 class="display-1 my-4 text-center">Contrarian Signal Framework Analysis</h1>
+    <div class="container">
+        <div class="text-container">
+
+            <div class="key-insight">
+                <h2>Key Insight</h2>
+                <div id="spinner" class="spinner-border" role="status" style="display: none;">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <div id="key-insight-content" style="display: none;">
+                    <p><strong>“Flight to Illiquidity” Trade—A Tactical Advantage in a Mispriced Risk Environment</strong></p>
+                    <p>While conventional wisdom pushes investors toward highly liquid senior structured credit (AAA CLOs, CMBS), the <em>real risk-adjusted alpha</em> lies in <strong>carefully curated illiquid opportunities</strong> across securitized markets. Here’s why:</p>
+                </div>
+                <ul id="key-insight-content-2" style="display: none; margin-top: 5px;">
+                    <li><strong>Dislocation in Price vs. Risk for Subordinate Tranches:</strong>
+                        <ul>
+                            <li>The market’s overemphasis on senior tranche safety has left <strong>BB CLOs and subordinated CMBS</strong> pricing disproportionately wide relative to their actual credit fundamentals.</li>
+                            <li>For <em>seasoned deals</em> in resilient collateral (multifamily CRE, diversified CLO pools), subordinated tranches can deliver compelling yields with manageable downside.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Liquidity Premium Distortion:</strong>
+                        <ul>
+                            <li>With persistent market volatility, investors are paying an <em>excessive premium</em> for liquidity. This dynamic creates an arbitrage opportunity in structured products that are:
+                                <ul>
+                                    <li><strong>Seasoned</strong> with deleveraged collateral.</li>
+                                    <li><strong>Out of favor</strong> due to headline risks but fundamentally sound (e.g., non-office CMBS, selective BB CLOs).</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><strong>Tail Risk in Senior Tranches:</strong>
+                        <ul>
+                            <li>The perceived safety of senior tranches, particularly in office CMBS, masks asymmetric tail risks tied to refinancing challenges and property revaluations.</li>
+                            <li>This paradox—low senior spreads with high latent risk—calls for contrarian allocation to lower-rated but better-protected exposures in non-core CRE and CLO equity.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Strategic Positioning for a Rate Cut Environment:</strong>
+                        <ul>
+                            <li>As the Fed transitions to easing, <em>floating-rate exposure</em> within CLO equity and non-agency RMBS offers enhanced reinvestment potential, further increasing the carry advantage for subordinated tranches.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <div id="key-insight-content-3" style="display: none;">
+                    <p><strong>Actionable Insight:</strong> A tactical “Flight to Illiquidity” trade focuses on under-owned, higher-yielding structured credit segments with <strong>seasoned, resilient collateral</strong>. This approach challenges conventional liquidity-driven bias and captures mispriced risks, particularly as broader markets remain anchored to overvalued senior tranches. For portfolio managers willing to embrace selective illiquidity, this strategy unlocks hidden value while staying positioned for a rate-cutting cycle.</p>
+                </div>
+            </div>
+            
+            <div class="analysis-section">
+                <h2>Framework Analysis</h2>
+                <div id="analysis-spinner" class="spinner-border" role="status" style="display: none;">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <div id="analysis-content" style="display: none;">
+                    <h3><strong>Outlier Opinions</strong></h3>
+                    <h3>1. Overvaluation Risks in CLO BB Tranches</h3>
+                    <ul>
+                        <li><strong>Deviation from Consensus:</strong>
+                            <p>While most analysts maintain a constructive stance on CLO senior and mezzanine tranches, T. Rowe Price diverges sharply, flagging <em>BB-rated CLOs</em> as overly risky. This contrasts with the broader market's relative optimism, which views BB tranches as offering attractive yields and potential for spread tightening.</p>
+                        </li>
+                        <li><strong>Key Arguments and Evidence:</strong>
+                            <ul>
+                                <li>Rising loan downgrades and default rates in the leveraged loan market disproportionately impact BB tranches, given their limited structural protections and heightened sensitivity to collateral deterioration.</li>
+                                <li>The report notes historical episodes where stressed loan markets triggered material losses in lower-rated CLO tranches.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Source Credibility:</strong>
+                            <p>T. Rowe Price has a well-established track record of conservative views within the CLO market, often preceding broader market caution. Their historical calls during liquidity crises lend weight to this perspective.</p>
+                        </li>
+                    </ul>
+            
+                    <h3>2. Hidden Default Risk in AAA CMBS Office Tranches</h3>
+                    <ul>
+                        <li><strong>Deviation from Consensus:</strong>
+                            <p>The prevailing market view assumes that <em>AAA-rated CMBS tranches</em>, even those backed by office properties, are well-protected from structural risks. However, DoubleLine Capital highlights an emerging risk of <em>unexpected losses</em> in senior office-backed CMBS, a view that starkly deviates from conventional confidence in top-rated segments.</p>
+                        </li>
+                        <li><strong>Key Arguments and Evidence:</strong>
+                            <ul>
+                                <li>The analysis identifies specific instances where office loan defaults have <em>exceeded modeled losses</em>, particularly in secondary markets with higher vacancy rates.</li>
+                                <li>DoubleLine warns that even senior tranches are not immune to loss severity if refinancing fails under higher interest costs and declining property values.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Source Credibility:</strong>
+                            <p>DoubleLine is recognized for its in-depth securitized credit expertise. The firm's accurate predictions during previous CRE downturns enhance the credibility of this bearish outlook.</p>
+                        </li>
+                    </ul>
+                    <h2>Summary of Key Contrarian Signals</h2>
+                    <ul>
+                        <li><strong>Outlier Risks:</strong> BB-rated CLOs and AAA CMBS office tranches face underappreciated default risks.</li>
+                        <li><strong>Unique Bullish Themes:</strong> Non-agency RMBS and aircraft ABS present undervalued opportunities driven by structural resilience and demand recovery.</li>
+                        <li><strong>Key Bearish Signals:</strong> Office CRE and subprime auto ABS are identified as sectors with heightened, underpriced risk exposure.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="analysis-section">
+                <div id="summary-spinner" class="spinner-border" role="status" style="display: none;">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <div id="summary-content" style="display: none;">
+                </div>
+            </div>        
+        <h2>Factor Analysis Table</h2><br>
+        <div id="table-spinner" class="spinner-border d-none" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="table-container d-none" id="table-container">
+            <table border="1" cellspacing="0" cellpadding="5" id="fat-table" class="d-none">
+                <thead>
+                    <tr>
+                        <th><strong>Key Takeaway</strong></th>
+                        <th><strong>Context</strong></th>
+                        <th><strong>Impact Assessment</strong></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1. Underrated Risks in BB CLO Tranches</strong></td>
+                        <td>While most analysts favor AAA CLOs, <strong>BB-rated CLO tranches</strong> face underappreciated risks due to rising <strong>loan downgrades</strong> and <strong>defaults</strong>.</td>
+                        <td>High exposure to leveraged loan stress could result in unexpected mark-to-market losses and spread widening.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. Overvaluation in Office CMBS Senior Tranches</strong></td>
+                        <td>The market assumes safety in <strong>AAA-rated CMBS</strong>, but declining office CRE valuations and refinancing risks challenge this belief.</td>
+                        <td>Potential loss recognition in senior tranches could trigger a reassessment of CMBS as a stable asset class.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. Hidden Resilience in Non-Agency RMBS</strong></td>
+                        <td>Hybrid ARM non-agency RMBS are <strong>undervalued</strong>, supported by <strong>borrower equity strength</strong> and rising home prices despite affordability risks.</td>
+                        <td>Select RMBS offer asymmetric upside with rate cut tailwinds, but affordability stress in weaker cohorts remains a risk.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>4. Aircraft ABS as an Overlooked Opportunity</strong></td>
+                        <td>Post-pandemic recovery and supply chain issues have driven <strong>lease rate increases</strong> for existing fleets, benefiting <strong>aircraft ABS</strong>.</td>
+                        <td>Niche asset class offers attractive yield with improving fundamentals, though sensitive to fuel costs and airline health.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>5. Emerging Climate Risk Underpricing</strong></td>
+                        <td>Analysts largely ignore <strong>localized climate risks</strong> (e.g., floods, wildfires) affecting RMBS and CMBS collateral in vulnerable regions.</td>
+                        <td>Underpriced risks could manifest in specific deals, driving delinquencies, regional valuation declines, and spread volatility.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3>Context and Expanded Impact</h3>
+
+            <ol>
+                <li>
+                    <strong>Underrated Risks in BB CLO Tranches</strong>:  
+                    <ul>
+                        <li>BB-rated CLOs are sensitive to leveraged loan defaults, which are rising amid tighter financial conditions and slower refinancing.</li>
+                        <li><strong>Impact</strong>: These tranches could experience spread volatility or principal impairment as managers struggle to maintain portfolio quality.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Overvaluation in Office CMBS Senior Tranches</strong>:  
+                    <ul>
+                        <li>Investors overestimate the safety of <strong>AAA CMBS</strong> backed by office CRE, failing to account for structural demand declines and higher refinancing costs.</li>
+                        <li><strong>Impact</strong>: A repricing event could ripple through CMBS markets, challenging assumptions about senior tranche stability.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Hidden Resilience in Non-Agency RMBS</strong>:  
+                    <ul>
+                        <li>Hybrid ARMs and seasoned CRTs are undervalued due to borrower equity strength and resilient home prices, despite emerging affordability stress.</li>
+                        <li><strong>Impact</strong>: These assets provide upside in a falling rate environment but remain vulnerable to macroeconomic shocks or rising unemployment.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Aircraft ABS as an Overlooked Opportunity</strong>:  
+                    <ul>
+                        <li>Post-pandemic travel recovery and constrained aircraft supply create strong lease dynamics for existing fleets, driving cash flow stability.</li>
+                        <li><strong>Impact</strong>: Aircraft ABS offers a compelling, uncorrelated yield opportunity for investors willing to manage sector-specific risks.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Emerging Climate Risk Underpricing</strong>:  
+                    <ul>
+                        <li>Localized climate risks (e.g., wildfires, hurricanes) remain underappreciated in structured credit analyses. Vulnerable geographies face significant valuation declines, particularly in RMBS and CMBS.</li>
+                        <li><strong>Impact</strong>: Default risks could increase unexpectedly in climate-exposed deals, leading to spread widening and investor repricing.</li>
+                    </ul>
+                </li>
+            </ol>
+            
+            <h3>Key Takeaways Summary</h3>
+            <p>This table synthesizes the <strong>most actionable contrarian signals</strong>, balancing context, supporting evidence, and impacts, allowing portfolio managers and risk teams to:</p>
+            <ul>
+                <li><strong>Reassess high-risk exposures</strong> (e.g., BB CLOs, office CMBS).</li>
+                <li><strong>Identify hidden opportunities</strong> (e.g., aircraft ABS, non-agency RMBS).</li>
+                <li><strong>Prepare for underpriced tail risks</strong> (e.g., climate-related defaults in RMBS/CMBS).</li>
+            </ul>                      
+        </div>
+
+        <div class="chart-container d-none">
+            <div id="chart-spinner" class="spinner-border" role="status" style="display: none;">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <figure id="figure">
+                <img src="path/to/img" alt="Sentiment and Consensus/Divergence Chart" style="display: none;">
+                <figcaption>Sentiment and Consensus/Divergence Chart</figcaption>
+            </figure>
+        </div>
+    </div>
+    <footer class="my-5 vh-100 d-flex align-items-center justify-content-center"></footer>
+        <h1 class="display-4">Designed by <a href="https://www.straive.com/" class="text-reset link-offset-3 link-underline link-underline-opacity-25">Straive</a></h1>
+      </footer>
+    </div>
+  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" type="module"></script>
+    <script src='https://cdn.jsdelivr.net/gh/FThompson/FormPersistence.js@2.0.6/form-persistence.min.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/@gramex/ui@0.3/dist/dark-theme.js" type="module"></script>
+    <script>
+        // Function to set light theme
+        function setLightTheme() {
+          document.documentElement.setAttribute('data-bs-theme', 'light');
+          updateThemeButtons('light');
+        }
+  
+        // Function to set dark theme
+        function setDarkTheme() {
+          document.documentElement.setAttribute('data-bs-theme', 'dark');
+          updateThemeButtons('dark');
+        }
+  
+        // Function to update theme button active states
+        function updateThemeButtons(activeTheme) {
+          const themeButtons = document.querySelectorAll('[data-bs-theme-value]');
+          themeButtons.forEach(button => {
+            if (button.getAttribute('data-bs-theme-value') === activeTheme) {
+              button.classList.add('active');
+            } else {
+              button.classList.remove('active');
+            }
+          });
+        }
+  
+        // Event listeners for theme buttons
+        document.addEventListener('DOMContentLoaded', () => {
+          const themeButtons = document.querySelectorAll('[data-bs-theme-value]');
+          
+          themeButtons.forEach(button => {
+            button.addEventListener('click', () => {
+              const theme = button.getAttribute('data-bs-theme-value');
+              
+              switch(theme) {
+                case 'light':
+                  setLightTheme();
+                  break;
+                case 'dark':
+                  setDarkTheme();
+                  break;
+                case 'auto':
+                  // Remove theme attribute to use system preference
+                  document.documentElement.removeAttribute('data-bs-theme');
+                  updateThemeButtons('auto');
+                  break;
+              }
+            });
+          });
+  
+          // Set light theme by default
+          setLightTheme();
+        });
+
+        // Show spinner and stream content for key insights
+        document.addEventListener('DOMContentLoaded', () => {
+            const spinner = document.getElementById('spinner');
+            const content = document.getElementById('key-insight-content');
+            const content2 = document.getElementById('key-insight-content-2');
+            const content3 = document.getElementById('key-insight-content-3');
+
+            // Show spinner
+            spinner.style.display = 'block';
+
+            // Hide spinner and show content after 3 seconds
+            setTimeout(() => {
+                spinner.style.display = 'none';
+                content.style.display = 'block';
+                content2.style.display = 'block';
+                content3.style.display = 'block';
+                // Stream content
+                const fullText = content.textContent;
+                const fullText2 = content3.textContent; // Get full text
+                content.innerHTML = '';
+                content3.innerHTML = ''; // Clear content for streaming effect
+                let index = 0;
+
+                const interval = setInterval(() => {
+                    if (index < fullText.length) {
+                        content.innerHTML += fullText.charAt(index);
+                        index++;
+                    } else {
+                        clearInterval(interval);
+                    }
+                }, Math.floor(Math.random() * (20 - 10 + 1)) + 10);
+                
+                let index2 = 0;
+                const interval2 = setInterval(() => {
+                    if (index2 < fullText2.length){
+                        content3.innerHTML += fullText2.charAt(index2);
+                        index2++;
+                    }else{
+                        clearInterval(interval2);
+                        showAnalysisSection();
+                    }
+                }, Math.floor(Math.random() * (20 - 10 + 1)) + 10);// Adjust speed of streaming here
+            }, 5000); // 3 seconds
+        });
+
+        // Function to show analysis section after a spinner
+        function showAnalysisSection() {
+            const analysisSpinner = document.getElementById('analysis-spinner');
+            const analysisContent = document.getElementById('analysis-content');
+
+            // Show spinner
+            analysisSpinner.style.display = 'block';
+
+            // Hide spinner and show content after 5 seconds
+            setTimeout(() => {
+                analysisSpinner.style.display = 'none';
+                analysisContent.style.display = 'block';
+                // Show chart container spinner for 4 seconds
+                showTableSpinner();
+            }, 5000); // 5 seconds
+        }
+        
+        function showTableSpinner() {
+            const tableSpinner = document.getElementById('table-spinner');
+            const tableContainer = document.getElementById('table-container');
+            const table = document.getElementById('fat-table');
+
+            tableSpinner.classList.remove('d-none');
+
+            setTimeout(() => {
+                tableSpinner.classList.add('d-none');
+                tableContainer.classList.remove('d-none');
+                table.classList.remove('d-none');
+            }, 5000);
+        }
+
+        // Function to show chart spinner
+/*        function showChartSpinner() {
+            const chartSpinner = document.getElementById('chart-spinner'); // Spinner for chart container
+            const chartImage = document.querySelector('.chart-container img'); // Image in chart container
+
+            // Show spinner
+            chartSpinner.style.display = 'block';
+
+            // Hide spinner and show image after 4 seconds
+            setTimeout(() => {
+                chartSpinner.style.display = 'none';
+                // Show the image (make sure the image is initially hidden)
+                chartImage.style.display = 'block'; // Show the image
+            }, 4000); // 4 seconds
+        }*/
+      </script>
+</body>
+</html>

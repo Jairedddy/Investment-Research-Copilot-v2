@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en" data-bs-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Investment Research Copilot</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="icon" href="https://raw.githubusercontent.com/gramener/assets/main/straive-favicon.svg">
+    <style>
+      body {
+        font-size: 0.9rem;
+      }
+      .display-1 {
+        font-size: 3rem;
+      }
+      .display-6 {
+        font-size: 1.25rem;
+      }
+      .navbar-brand {
+        font-size: 1.25rem;
+      }
+      .btn {
+        font-size: 0.875rem;
+      }
+      .drag-area {
+        border: 2px dashed #ccc;
+        border-radius: 5px;
+        padding: 20px;
+        text-align: center;
+      }
+      .drag-area.active {
+        border-color: #0d6efd;
+        background: #f8f9fa;
+      }
+      .narrative {
+        max-width: 40rem;
+      }
+  
+      .custom-scrollbar {
+        scrollbar-width: thin;
+        scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
+      }
+  
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 8px;
+      }
+  
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: transparent;
+      }
+  
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.3);
+        border-radius: 4px;
+        border: 2px solid transparent;
+      }
+  
+      .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+      .feature-card {
+        height: 100%;
+        transition: all 0.3s ease;
+        border: 1px solid grey;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .feature-card:hover {
+        transform: translateY(-5px);
+        border-color: green;
+        color: green;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+      }
+
+      .feature-icon {
+        font-size: 2rem;
+        color: var(--straive-primary);
+        margin-bottom: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href=".">DashBoard</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="nav-item dropdown ms-auto" role="group" aria-label="Toggle dark mode" title="Toggle Dark Mode">
+              <button class="dark-theme-toggle btn btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Toggle theme (light)">
+                <i class="bi bi-circle-half"></i> <span class="d-lg-none ms-2">Toggle theme</span>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><button class="dropdown-item active" data-bs-theme-value="light"><i class="me-2 bi bi-sun-fill"></i> Light</button></li>
+                <li><button class="dropdown-item" data-bs-theme-value="dark"><i class="me-2 bi bi-moon-stars-fill"></i> Dark</button></li>
+                <li><button class="dropdown-item"><i class="me-2 bi bi-circle-half"></i> Auto</button></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <h1 class="display-1 my-4 text-center">Investment Research Copilot</h1>
+        <h2 class="display-6 text-center">Unlock deeper market insights with our suite of advanced analytical frameworks, designed to empower investment professionals with actionable intelligence. Explore the tools below to enhance your research process and drive superior investment decisions.</h2>
+
+    <!-- Features Grid -->
+    <div class="container py-5">
+      <div class="row g-3">
+        <div class="col-md-6 col-lg-4">
+          <a href="consensus.html" class="card feature-card p-4" style="text-decoration: none">
+            <i class="bi bi-graph-up feature-icon"></i>
+            <h3 class="h4 mb-3">Consensus &amp; Divergence</h3>
+            <p class="text-muted">
+              Highlight areas where analysts agree or diverge, providing clarity on market
+              sentiment.
+            </p>
+          </a>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <a class="card feature-card p-4" href="contrarian.html" style="text-decoration: none;">
+            <i class="bi bi-lightning feature-icon"></i>
+            <h3 class="h4 mb-3">Contrarian Signals</h3>
+            <p class="text-muted">
+              Identify outlier opinions within consensus to uncover unique investment opportunities.
+            </p>
+          </a>
+        </div>
+        <div class="col-md-6 col-lg-4">
+            <a class="card feature-card p-4" href="chainofthought.html" style="text-decoration: none;">
+            <i class="bi bi-diagram-3 feature-icon"></i>
+            <h3 class="h4 mb-3">Chain-of-Thought</h3>
+            <p class="text-muted">
+              Pinpoint logic gaps and provide deeper insights into analysts' reasoning frameworks.
+            </p>
+        </a>
+        </div>
+        <div class="col-md-6 col-lg-4">
+            <a class="card feature-card p-4" href="temporaltrends.html" style="text-decoration: none;">
+            <i class="bi bi-clock-history feature-icon"></i>
+            <h3 class="h4 mb-3">Temporal Trends</h3>
+            <p class="text-muted">
+              Track how perspectives evolve over time, helping to anticipate market movements.
+            </p>
+        </a>
+        </div>
+        <div class="col-md-6 col-lg-4">
+            <a class="card feature-card p-4" href="nonobvious.html" style="text-decoration: none;">
+            <i class="bi bi-link-45deg feature-icon"></i>
+            <h3 class="h4 mb-3">Non-Obvious Linkages</h3>
+            <p class="text-muted">
+              Uncover hidden dependencies and relationships to reveal potential risks and
+              opportunities.
+            </p>
+        </a>
+        </div>
+        <div class="col-md-6 col-lg-4">
+            <a class="card feature-card p-4" href="regulatoryforesight.html" style="text-decoration: none;">
+            <i class="bi bi-shield-check feature-icon"></i>
+            <h3 class="h4 mb-3">Regulatory Foresight</h3>
+            <p class="text-muted">
+              Analyze upcoming policies and regulations to forecast their impact on investments.
+            </p>
+        </a>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <a class="card feature-card p-4" href="https://docsearch.straivedemo.com/irc2/" style="text-decoration: none;">
+            <i class="bi bi-chat-dots feature-icon"></i>
+            <h3 class="h4 mb-3">Chat with AI</h3>
+            <p class="text-muted">
+              Talk with our powerful AI tool to observe valuable insights.
+            </p>
+          </a>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="my-5 vh-100 d-flex align-items-center justify-content-center">
+        <h1 class="display-4">Designed by <a href="https://www.straive.com/" class="text-reset link-offset-3 link-underline link-underline-opacity-25">Straive</a></h1>
+      </footer>
+    </div>
+  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" type="module"></script>
+    <script src='https://cdn.jsdelivr.net/gh/FThompson/FormPersistence.js@2.0.6/form-persistence.min.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/@gramex/ui@0.3/dist/dark-theme.js" type="module"></script>
+    <script>
+        // Function to set light theme
+        function setLightTheme() {
+          document.documentElement.setAttribute('data-bs-theme', 'light');
+          updateThemeButtons('light');
+        }
+  
+        // Function to set dark theme
+        function setDarkTheme() {
+          document.documentElement.setAttribute('data-bs-theme', 'dark');
+          updateThemeButtons('dark');
+        }
+  
+        // Function to update theme button active states
+        function updateThemeButtons(activeTheme) {
+          const themeButtons = document.querySelectorAll('[data-bs-theme-value]');
+          themeButtons.forEach(button => {
+            if (button.getAttribute('data-bs-theme-value') === activeTheme) {
+              button.classList.add('active');
+            } else {
+              button.classList.remove('active');
+            }
+          });
+        }
+  
+        // Event listeners for theme buttons
+        document.addEventListener('DOMContentLoaded', () => {
+          const themeButtons = document.querySelectorAll('[data-bs-theme-value]');
+          
+          themeButtons.forEach(button => {
+            button.addEventListener('click', () => {
+              const theme = button.getAttribute('data-bs-theme-value');
+              
+              switch(theme) {
+                case 'light':
+                  setLightTheme();
+                  break;
+                case 'dark':
+                  setDarkTheme();
+                  break;
+                case 'auto':
+                  // Remove theme attribute to use system preference
+                  document.documentElement.removeAttribute('data-bs-theme');
+                  updateThemeButtons('auto');
+                  break;
+              }
+            });
+          });
+  
+          // Set light theme by default
+          setLightTheme();
+        });
+    </script>
+  </body>
+</html>

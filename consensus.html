@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Consensus Analysis Framework</title>
+    <link rel="icon" href="https://raw.githubusercontent.com/gramener/assets/main/straive-favicon.svg">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        body {
+            font-size: 0.9rem;
+        }
+
+        .container {
+            max-width: max-content;
+            align-items: center;
+            margin: 40px auto;
+            padding: 40px;
+            background-color: white;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .text-container {
+            flex: 1;
+            margin-right: 40px;
+            max-width: 75%;
+        }
+
+        .chart-container {
+            flex: 1;
+            text-align: center;
+            max-width: 75%;
+            margin-top: 100px; /* Adjust this value to align with Framework Analysis */
+        }
+
+        .key-insight {
+            background-color: #edece8;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            border: 1px solid grey;
+        }
+
+        .key-insight h2 {
+            font-weight: bold;
+        }
+
+        .analysis-section {
+            margin-bottom: 40px;
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 600;
+            color: black;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+            text-align: center;
+            color: black;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #37474f;
+            padding-bottom: 15px;
+            color: black;
+        }
+
+        h3 {
+            font-size: 1.4em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            color: black;
+        }
+
+        h4 {
+            font-style: italic;
+            color: black;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-left: 20px;
+            color: black;
+        }
+        ul ul {
+            list-style-type: circle;
+            padding-left: 20px;
+            margin-left: 20px;
+        }
+
+        .analysis-section p {
+            color: black;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #37474f;
+            margin: 30px 0;
+        }
+        .navbar-brand{
+            font-size: 1.25rem;
+        }
+        .display-1{
+            font-size: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark"">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/index.html"><b>Dashboard ></b> <a class="navbar-brand" href="consensus.html" style="text-decoration: underline;">Consensus and Divergence</a></a>
+          <button disabled="true" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="nav-item dropdown ms-auto" role="group" aria-label="Toggle dark mode" title="Toggle Dark Mode">
+              <button class="dark-theme-toggle btn btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Toggle theme (light)">
+                <i class="bi bi-circle-half"></i> <span class="d-lg-none ms-2">Toggle theme</span>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><button class="dropdown-item active" data-bs-theme-value="light"><i class="me-2 bi bi-sun-fill"></i> Light</button></li>
+                <li><button class="dropdown-item" data-bs-theme-value="dark"><i class="me-2 bi bi-moon-stars-fill"></i> Dark</button></li>
+                <li><button class="dropdown-item"><i class="me-2 bi bi-circle-half"></i> Auto</button></li>
+              </ul>
+            </div>
+          </div>
+          <button class="btn btn-outline-light ms-2" onclick="window.location.href='https://docsearch.straivedemo.com/irc2/'">Chat with AI</button>
+        </div>
+    </nav>
+    <h1 class="display-1 my-4 text-center">Consensus &amp Divergence Framework Analysis</h1>
+    <div class="container">
+        <div class="text-container">
+
+            <div class="key-insight">
+                <h2>Key Insight</h2>
+                <div id="spinner" class="spinner-border" role="status" style="display: none;">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <div id="key-insight-content" style="display: none;">
+                    <p><strong>Emerging Correlation Between CLOs and Securitized CRE Debt: A Self-Reinforcing Liquidity Buffer</strong></p>
+                    <p>Traditionally viewed as independent credit ecosystems, CLOs and securitized CRE debt are beginning to exhibit non-obvious correlations due to shifting investor behavior and structural dynamics:</p>
+                </div>
+                    <ul id="key-insight-content-2" style="display: none; margin-top: 5px;">
+                        <li><strong>Shared Rate Sensitivity Amplified by Fed Policy:</strong> Both asset classes are increasingly supported by the anticipated rate-cutting cycle. However, CLOs' floating-rate structure benefits directly from rate cuts, enhancing investor liquidity, which could spill over into other structured credit markets, including CMBS.</li>
+                        <li><strong>Cross-Sector Investor Arbitrage:</strong> As spreads tighten in CLOs, investors are starting to rotate into selectively undervalued segments of seasoned CMBS (industrial and multifamily), drawn by relative value in property types less exposed to structural risks. This arbitrage effect could act as a stabilizing force for securitized CRE debt.</li>
+                        <li><strong>Implication for Portfolio Strategy:</strong> A tactical allocation to AAA CLOs paired with senior CMBS (focused on resilient property types) offers not just diversified carry but also a potential "liquidity synergy." As CLO yields compress, reallocation flows into CRE debt could mitigate refinancing risks in top-tier multifamily and industrial assets, creating a virtuous cycle of enhanced market liquidity across both sectors.</li>
+                    </ul>
+                <div id="key-insight-content-3" style="display: none;">
+                    <p><strong>Surprise Element:</strong> This interdependence suggests that strength in CLO markets could indirectly buttress CMBS valuations in resilient segments, challenging traditional assumptions about their separateness. For a fixed income strategist, this means viewing CLO and CMBS allocations not as isolated bets but as components of a synergistic portfolio hedge that leverages liquidity spillover effects.</p>
+                </div>
+            </div>
+
+            <div class="analysis-section">
+                <h2>Framework Analysis</h2>
+                <div id="analysis-spinner" class="spinner-border" role="status" style="display: none;">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <div id="analysis-content" style="display: none;">
+                    <h3>1. Debt Valuations and Credit Risk</h3>
+                    <ul>
+                        <li><strong>Valuation Models and Assumptions:</strong>
+                            <ul>
+                                <li>Analysts broadly agree on the attractiveness of structured credit, especially CLOs and non-agency RMBS, due to spread compression and relative value in comparison to corporate bonds.</li>
+                                <li>Discrepancies in valuation arise in commercial real estate (CRE), where stress in office and retail subsectors introduces divergent views on fair value for CMBS.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Fair Value Consensus:</strong>
+                            <ul>
+                                <li>Investment-grade CLO tranches remain highly regarded, supported by historical resilience to defaults. AAA CLO tranches are consistently favored for their low risk and attractive carry.</li>
+                                <li>In CRE, the consensus is mixed: while industrial and multifamily properties maintain robust valuations, office spaces are challenged due to post-pandemic structural changes.</li>
+                            </ul>
+                        </li>
+                    </ul>
+            
+                    <h3>2. Recommendations</h3>
+                    <ul>
+                        <li><strong>Range of Recommendations:</strong>
+                            <ul>
+                                <li><strong>CLOs:</strong> Most analysts recommend maintaining exposure, particularly in AAA and AA tranches, citing yield advantages and robust collateral performance.</li>
+                                <li><strong>Non-agency RMBS:</strong> Analysts emphasize selectivity, favoring seasoned credit risk transfer (CRT) bonds and non-qualified mortgages (non-QMs).</li>
+                                <li><strong>Agency MBS:</strong> Analysts are optimistic about spread compression potential amid anticipated rate cuts.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Shifts Over Time:</strong>
+                            <ul>
+                                <li>The securitized credit market has seen increasing optimism in 2024 due to stabilizing economic indicators and Fed rate cuts.</li>
+                                <li>In CRE, the tone remains cautious, especially in office subsectors, although some improvement is noted in transaction activity.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Outliers:</strong>
+                            <ul>
+                                <li>A minority view predicts continued CRE stress, suggesting high risks in refinancing lower-tier office properties.</li>
+                            </ul>
+                        </li>
+                    </ul>
+            
+                    <h3>3. Market Outlooks</h3>
+                    <ul>
+                        <li><strong>Sentiment:</strong>
+                            <ul>
+                                <li>Structured credit sectors are broadly bullish, driven by resilient credit fundamentals and attractive yield spreads compared to corporate debt.</li>
+                                <li>The outlook for CRE is more cautious, with concerns centered on refinancing risks and potential further asset value declines in office spaces.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Key Drivers:</strong>
+                            <ul>
+                                <li>Economic resilience, lower inflation, and Fed rate cuts underpin positive sentiment in securitized credit markets.</li>
+                                <li>Challenges in CRE stem from structural shifts (e.g., remote work) and tighter financing conditions.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Disagreements:</strong>
+                            <ul>
+                                <li><strong>CRE valuation:</strong> Divergence in views on recovery timing and extent, with some analysts projecting stabilization and others forecasting prolonged distress.</li>
+                                <li><strong>CLOs:</strong> While most agree on AAA tranche strength, some caution against tightening spreads reducing relative value.</li>
+                            </ul>
+                        </li>
+                    </ul>
+            
+                    <h3>Overall Sentiment and Implications</h3>
+                    <p>The consensus favors structured credit over CRE, with analysts aligning on the resilience and yield attractiveness of CLOs and RMBS. Divergences are most apparent in CRE, where macroeconomic uncertainties and sector-specific challenges yield mixed views. For investors, this suggests opportunities in high-quality structured credit but warrants caution in CRE exposure, particularly in stressed office subsectors.</p>
+                </div>
+            </div>
+            <h2>Factor Analysis</h2>
+            <div id="table-spinner" class="spinner-border d-none" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <div class="table-container d-none" id="table-container">
+                <table border="1" cellspacing="0" cellpadding="5" class="d-none" id="fat-table">
+                    <thead>
+                      <tr>
+                        <th><strong>Factor</strong></th>
+                        <th><strong>Relative Importance</strong></th>
+                        <th><strong>Key Example</strong></th>
+                        <th><strong>Why It Matters</strong></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>Office CRE Refinancing Risk</strong></td>
+                        <td style="background-color: #878787;"><strong>1.0</strong></td>
+                        <td>Sharp sentiment decline in <strong>CMBS Office</strong> tranches</td>
+                        <td>Office property valuations are deteriorating rapidly, amplifying default risks.</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Credit Quality Divergence</strong></td>
+                        <td style="background-color: #a1a1a1;"><strong>0.85</strong></td>
+                        <td>Positive views on <strong>CLO AAA</strong> vs. bearish on <strong>BB CLOs</strong></td>
+                        <td>Reflects systemic bifurcation: AAA remains a safe haven, while BB faces default pressure.</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Macroeconomic Uncertainty</strong></td>
+                        <td style="background-color: #b6b8b6;"><strong>0.8</strong></td>
+                        <td>Higher-for-longer rates stress <strong>CLO BB</strong> refinancing</td>
+                        <td>Macro volatility directly affects leverage, credit spreads, and refinancing.</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Consumer Credit Divergence</strong></td>
+                        <td style="background-color: #d9d9d9;"><strong>0.65</strong></td>
+                        <td>Rising delinquencies in <strong>subprime RMBS</strong></td>
+                        <td>Indicates growing stress on lower-income borrowers, signaling cracks in consumer resilience.</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Green Securitizations</strong></td>
+                        <td style="background-color: #ebebeb;"><strong>0.55</strong></td>
+                        <td>Growth in <strong>EV loan ABS</strong> and <strong>green RMBS</strong></td>
+                        <td>ESG-driven securitizations are an emerging opportunity but lack immediacy.</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Private Credit Scrutiny</strong></td>
+                        <td style="background-color: #f5f2f2;"><strong>0.5</strong></td>
+                        <td>Regulatory oversight on <strong>private credit funds</strong></td>
+                        <td>May constrain leveraged loan supply, affecting <strong>CLO pipelines</strong> and mezzanine risk.</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Resilience of Multifamily CRE</strong></td>
+                        <td style="background-color: white;"><strong>0.4</strong></td>
+                        <td>Positive sentiment on <strong>CMBS Industrial</strong> tranches</td>
+                        <td>Industrial and multifamily CRE remain resilient, providing selective opportunities.</td>
+                      </tr>
+                    </tbody>
+                  </table> 
+                  <h3><strong>How Relative Importance Was Derived</strong>:</h3>
+                  <ol>
+                    <li>
+                      <strong>Office CRE Refinancing Risk (1.0)</strong>:
+                      <ul>
+                        <li>Clearly the most immediate and severe threat, consistently flagged as a systemic risk across reports. Implications include defaults, liquidity crunches, and spread volatility in CMBS.</li>
+                      </ul>
+                    </li>
+                    <li>
+                      <strong>Credit Quality Divergence (0.85)</strong>:
+                      <ul>
+                        <li>Highly interconnected with macro trends and structural credit bifurcation. AAA CLOs remain stable, while BB tranches are vulnerable to downgrades and refinancing headwinds.</li>
+                      </ul>
+                    </li>
+                    <li>
+                      <strong>Macroeconomic Uncertainty (0.8)</strong>:
+                      <ul>
+                        <li>Affects all credit markets through <strong>higher rates</strong> and <strong>slower-than-expected easing</strong>, impacting riskier tranches (BB CLOs, non-QM RMBS) the most.</li>
+                      </ul>
+                    </li>
+                    <li>
+                      <strong>Consumer Credit Divergence (0.65)</strong>:
+                      <ul>
+                        <li>Analysts signal cracks in subprime borrower resilience. While not systemic yet, rising delinquencies in <strong>subprime RMBS</strong> reflect stress in household balance sheets.</li>
+                      </ul>
+                    </li>
+                    <li>
+                      <strong>Green Securitizations (0.55)</strong>:
+                      <ul>
+                        <li>Long-term opportunity driven by policy incentives but not as immediate or severe as other factors.</li>
+                      </ul>
+                    </li>
+                    <li>
+                      <strong>Private Credit Scrutiny (0.5)</strong>:
+                      <ul>
+                        <li>Regulatory risks could constrain CLO supply, but these changes are still evolving and less imminent compared to CRE or consumer credit concerns.</li>
+                      </ul>
+                    </li>
+                    <li>
+                      <strong>Resilience of Multifamily CRE (0.4)</strong>:
+                      <ul>
+                        <li>Positive tailwind for industrial and multifamily CMBS segments but not a systemic driver of market sentiment.</li>
+                      </ul>
+                    </li>
+                  </ol>                                   
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <h2>Sentiment and Consensus/Divergence Chart</h2>
+            <div id="chart-spinner" class="spinner-border" role="status" style="display: none;">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <figure id="figure">
+                <img src="./Images/consensus.png" alt="Sentiment and Consensus/Divergence Chart" style="display: none; max-width: 100%; height: auto;">
+            </figure>
+        </div>
+    </div>
+    <footer class="my-5 vh-100 d-flex align-items-center justify-content-center"></footer>
+        <h1 class="display-4">Designed by <a href="https://www.straive.com/" class="text-reset link-offset-3 link-underline link-underline-opacity-25">Straive</a></h1>
+      </footer>
+    </div>
+  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" type="module"></script>
+    <script src='https://cdn.jsdelivr.net/gh/FThompson/FormPersistence.js@2.0.6/form-persistence.min.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/@gramex/ui@0.3/dist/dark-theme.js" type="module"></script>
+    <script>
+        // Function to set light theme
+        function setLightTheme() {
+          document.documentElement.setAttribute('data-bs-theme', 'light');
+          updateThemeButtons('light');
+        }
+  
+        // Function to set dark theme
+        function setDarkTheme() {
+          document.documentElement.setAttribute('data-bs-theme', 'dark');
+          updateThemeButtons('dark');
+        }
+  
+        // Function to update theme button active states
+        function updateThemeButtons(activeTheme) {
+          const themeButtons = document.querySelectorAll('[data-bs-theme-value]');
+          themeButtons.forEach(button => {
+            if (button.getAttribute('data-bs-theme-value') === activeTheme) {
+              button.classList.add('active');
+            } else {
+              button.classList.remove('active');
+            }
+          });
+        }
+  
+        // Event listeners for theme buttons
+        document.addEventListener('DOMContentLoaded', () => {
+          const themeButtons = document.querySelectorAll('[data-bs-theme-value]');
+          
+          themeButtons.forEach(button => {
+            button.addEventListener('click', () => {
+              const theme = button.getAttribute('data-bs-theme-value');
+              
+              switch(theme) {
+                case 'light':
+                  setLightTheme();
+                  break;
+                case 'dark':
+                  setDarkTheme();
+                  break;
+                case 'auto':
+                  // Remove theme attribute to use system preference
+                  document.documentElement.removeAttribute('data-bs-theme');
+                  updateThemeButtons('auto');
+                  break;
+              }
+            });
+          });
+  
+          // Set light theme by default
+          setLightTheme();
+        });
+
+        // Show spinner and stream content for key insights
+        document.addEventListener('DOMContentLoaded', () => {
+            const spinner = document.getElementById('spinner');
+            const content = document.getElementById('key-insight-content');
+            const content2 = document.getElementById('key-insight-content-2');
+            const content3 = document.getElementById('key-insight-content-3');
+
+            // Show spinner
+            spinner.style.display = 'block';
+
+            // Hide spinner and show content after 3 seconds
+            setTimeout(() => {
+                spinner.style.display = 'none';
+                content.style.display = 'block';
+                content2.style.display = 'block';
+                content3.style.display = 'block';
+                // Stream content
+                const fullText = content.textContent;
+                const fullText2 = content3.textContent; // Get full text
+                content.innerHTML = '';
+                content3.innerHTML = ''; // Clear content for streaming effect
+                let index = 0;
+
+                const interval = setInterval(() => {
+                    if (index < fullText.length) {
+                        content.innerHTML += fullText.charAt(index);
+                        index++;
+                    } else {
+                        clearInterval(interval);
+                    }
+                }, Math.floor(Math.random() * (20 - 10 + 1)) + 10);
+                
+                let index2 = 0;
+                const interval2 = setInterval(() => {
+                    if (index2 < fullText2.length){
+                        content3.innerHTML += fullText2.charAt(index2);
+                        index2++;
+                    }else{
+                        clearInterval(interval2);
+                        showAnalysisSection();
+                    }
+                }, Math.floor(Math.random() * (20 - 10 + 1)) + 10);// Adjust speed of streaming here
+            }, 3000); // 3 seconds
+        });
+
+        // Function to show analysis section after a spinner
+        function showAnalysisSection() {
+            const analysisSpinner = document.getElementById('analysis-spinner');
+            const analysisContent = document.getElementById('analysis-content');
+
+            // Show spinner
+            analysisSpinner.style.display = 'block';
+
+            // Hide spinner and show content after 5 seconds
+            setTimeout(() => {
+                analysisSpinner.style.display = 'none';
+                analysisContent.style.display = 'block';
+                // Show chart container spinner for 4 seconds
+                showTableSpinner();
+            }, 5000); // 5 seconds
+        }
+
+        function showTableSpinner(){
+            const tableSpinner = document.getElementById('table-spinner');
+            const tableContainer = document.getElementById('table-container');
+            const table = document.getElementById('fat-table');
+
+            tableSpinner.classList.remove('d-none');
+
+            setTimeout(() => {
+                tableSpinner.classList.add('d-none');
+                tableContainer.classList.remove('d-none');
+                table.classList.remove('d-none');
+                showChartSpinner();
+            }, 3000);
+        }
+
+        // Function to show chart spinner
+        function showChartSpinner() {
+            const chartSpinner = document.getElementById('chart-spinner'); // Spinner for chart container
+            const chartImage = document.querySelector('.chart-container img'); // Image in chart container
+
+            // Show spinner
+            chartSpinner.style.display = 'block';
+
+            // Hide spinner and show image after 4 seconds
+            setTimeout(() => {
+                chartSpinner.style.display = 'none';
+                // Show the image (make sure the image is initially hidden)
+                chartImage.style.display = 'block'; // Show the image
+            }, 4000); // 4 seconds
+        }
+      </script>
+</body>
+</html>

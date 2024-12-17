@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Non-Obvious Linkages</title>
+    <link rel="icon" href="https://raw.githubusercontent.com/gramener/assets/main/straive-favicon.svg">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        body {
+            font-size: 0.9rem;
+        }
+
+        .container {
+            max-width: max-content;
+            align-items: center;
+            margin: 40px auto;
+            padding: 40px;
+            background-color: white;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .text-container {
+            flex: 1;
+            margin-right: 40px;
+            max-width: 75%;
+        }
+
+        .chart-container {
+            flex: 1;
+            max-width: 75%;
+            margin-top: 100px; /* Adjust this value to align with Framework Analysis */
+        }
+
+        .key-insight {
+            background-color: #edece8;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            border: 1px solid grey;
+        }
+
+        .key-insight h2 {
+            font-weight: bold;
+        }
+
+        .analysis-section {
+            margin-bottom: 40px;
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 600;
+            color: black;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+            text-align: center;
+            color: black;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #37474f;
+            padding-bottom: 15px;
+            color: black;
+        }
+
+        h3 {
+            font-size: 1.4em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            color: black;
+        }
+
+        h4 {
+            font-style: italic;
+            color: black;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-left: 20px;
+            color: black;
+        }
+        ul ul {
+            list-style-type: circle;
+            padding-left: 20px;
+            margin-left: 20px;
+        }
+
+        .analysis-section p {
+            color: black;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #37474f;
+            margin: 30px 0;
+        }
+        .navbar-brand{
+            font-size: 1.25rem;
+        }
+        .display-1{
+            font-size: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark"">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/index.html"><b>Dashboard ></b> <a class="navbar-brand" href="nonobvious.html" style="text-decoration: underline;">Non-Obvious Linkages</a></a>
+          <button disabled="true" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="nav-item dropdown ms-auto" role="group" aria-label="Toggle dark mode" title="Toggle Dark Mode">
+              <button class="dark-theme-toggle btn btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Toggle theme (light)">
+                <i class="bi bi-circle-half"></i> <span class="d-lg-none ms-2">Toggle theme</span>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><button class="dropdown-item active" data-bs-theme-value="light"><i class="me-2 bi bi-sun-fill"></i> Light</button></li>
+                <li><button class="dropdown-item" data-bs-theme-value="dark"><i class="me-2 bi bi-moon-stars-fill"></i> Dark</button></li>
+                <li><button class="dropdown-item"><i class="me-2 bi bi-circle-half"></i> Auto</button></li>
+              </ul>
+            </div>
+          </div>
+          <button class="btn btn-outline-light ms-2" onclick="window.location.href='https://docsearch.straivedemo.com/irc2/'">Chat with AI</button>          
+        </div>
+    </nav>
+    <h1 class="display-1 my-4 text-center">Framework Analysis</h1>
+    <div class="container">
+        <div class="text-container">
+
+            <div class="key-insight">
+                <h2>Key Insight</h2>
+                <div id="spinner" class="spinner-border" role="status" style="display: none;">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <div id="key-insight-content" style="display: none;">
+                    <p><strong>The "Liquidity Compression Spiral" in Structured Credit.  </strong>The real systemic risk across <strong>CLOs, CMBS, and ABS</strong> lies in a <em>hidden liquidity compression spiral</em>—a chain reaction triggered by over-reliance on institutional investors and shared funding mechanisms across structured markets. Here's how it unfolds:</p>
+                </div>
+                <ul id="key-insight-content-2" style="display: none; margin-top: 5px;">
+                    <li><strong>Concentration of Institutional Capital:</strong>
+                        <ul>
+                            <li>Insurance companies, private credit funds, and non-bank lenders have become dominant buyers of securitized assets (e.g., CLOs, RMBS, and niche ABS). Their growing appetite for yield has artificially supported spreads, even in stressed segments like BB-rated CLOs and office-backed CMBS.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Feedback Loop from Private Credit:</strong>
+                        <ul>
+                            <li>A deterioration in private credit (e.g., rising defaults in sponsor-backed corporates) could force insurers and private credit funds to <strong>raise liquidity</strong>, leading to selling pressure on their structured credit holdings. This creates a reflexive spiral—liquidity dries up, spreads widen, and valuations decline across securitized assets.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Cross-Market Contagion:</strong>
+                        <ul>
+                            <li>Since insurers and funds are increasingly interconnected through <strong>NAV-backed loans and structured products</strong>, forced deleveraging in one segment (e.g., BB CLOs) could trigger repricing across <strong>CMBS and auto ABS</strong> where these same investors hold positions.</li>
+                            <li><em>Example:</em> Stress in private credit funds prompts a selloff in BB-rated CLO tranches, causing insurers to mark down valuations, leading to secondary spillovers in other sectors like CMBS.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Hidden Risk Amplifier—Heavy Issuance:</strong>
+                        <ul>
+                            <li>Elevated new issuance in CLOs and RMBS exacerbates this risk by creating <strong>supply-side fragility</strong>—any investor exit could overwhelm the market’s capacity to absorb it, amplifying spread volatility.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <div id="key-insight-content-3" style="display: none;">
+                    <p><strong>Strategic Implication:</strong></p>
+                    <ul>
+                        <li><strong>Stress-test structured portfolios</strong> for liquidity correlations between private credit, CLOs, CMBS, and ABS holdings.</li>
+                        <li><strong>De-risk from crowded segments</strong> (e.g., BB-rated CLOs, lower-tier CMBS) where institutional ownership is concentrated and refinancing stress is underappreciated.</li>
+                        <li><strong>Identify liquid havens:</strong> Focus on senior tranches of <strong>seasoned RMBS</strong> and diversified, <strong>short-duration ABS</strong> segments (e.g., non-EV auto loans) that offer defensive liquidity while avoiding reflexive exposure.</li>
+                    </ul>
+                    <p>This insight reframes the risk landscape—structured credit’s hidden fragility lies not in its fundamentals but in the concentrated liquidity dependency that could unravel under stress, a threat currently underappreciated by most market participants.</p>
+                </div>
+            </div>
+
+            <div class="analysis-section">
+                <h2>Framework Analysis</h2>
+                <div id="analysis-spinner" class="spinner-border" role="status" style="display: none;">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <div id="analysis-content" style="display: none;">
+                    <h3>Inter-Company Relationships</h3>
+                    <ul>
+                        <li><strong>Private Credit Funds and Bank Exposure</strong>
+                            <ul>
+                                <li><strong>Hidden Dependency:</strong> Banks and private credit funds (PCFs) are increasingly interconnected through <strong>subscription lines, NAV loans, and equity-backed lending</strong>.</li>
+                                <li><strong>Implication:</strong> If private credit portfolios begin to underperform, <strong>banks’ collateral quality and capital buffers</strong> could be indirectly weakened.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Insurance Companies as Buyers of Securitized Credit</strong>
+                            <ul>
+                                <li><strong>Hidden Dependency:</strong> Insurance firms have significantly increased their holdings of <strong>non-agency RMBS, CMBS, and ABS</strong>, driven by annuity demand and a search for stable yield.</li>
+                                <li><strong>Implication:</strong> A market disruption in securitized credit could destabilize insurers’ balance sheets.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Technology and AI Adoption in Securitization Platforms</strong>
+                            <ul>
+                                <li><strong>Hidden Collaboration:</strong> Emerging partnerships between <strong>fintech platforms and traditional lenders</strong> are driving innovations in <strong>data-driven securitization</strong> and <strong>AI-assisted underwriting</strong>.</li>
+                            </ul>
+                        </li>
+                    </ul>
+            
+                    <h3>Sectoral Interdependencies</h3>
+                    <ul>
+                        <li><strong>CRE and RMBS Markets—Convergence of Housing and Commercial Risks</strong>
+                            <ul>
+                                <li><strong>Hidden Interplay:</strong> A weakening CRE market, particularly in office properties, can impact the <strong>housing market indirectly</strong> through shared economic drivers.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Energy Transition and Industrial ABS Exposure</strong>
+                            <ul>
+                                <li><strong>Hidden Correlation:</strong> Climate-driven energy policies are reshaping <strong>automotive and industrial ABS</strong>.</li>
+                            </ul>
+                        </li>
+                    </ul>
+            
+                    <h3>Macroeconomic Linkages</h3>
+                    <ul>
+                        <li><strong>Interest Rates and Securitized Credit Resilience</strong>
+                            <ul>
+                                <li><strong>Linkage:</strong> Analysts highlight the positive outlook for structured credit due to anticipated rate cuts.</li>
+                                <li>If terminal rates remain <strong>higher for longer</strong>, refinancing stress in **CMBS and CLO** tranches could accelerate defaults and trigger downgrades.</li>
+                                <li><strong>Implication:</strong> The market is overly optimistic about spread tightening, particularly in subordinate CMBS and BB-rated CLOs. Investors should prepare for **spread volatility** tied to inconsistent rate-cut execution.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Geopolitical Events and Energy Prices</strong>
+                            <ul>
+                                <li><strong>Linkage:</strong> Middle East tensions and disruptions to <em>energy trade routes</em> could indirectly stress <em>global inflation</em> and structured credit markets.</li>
+                                <li>Higher energy costs exacerbate refinancing challenges in <em>transportation ABS</em> (e.g., aircraft and shipping loans) and impair disposable income for **consumer loan-backed ABS**</li>
+                                <li><strong>Implication:</strong> Structured credit markets remain underprepared for second-order effects of geopolitical energy shocks, which could trigger <em>broader downgrades in CMBS, ABS, and RMBS</em></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <h3>Thematic Investment Opportunities</h3>
+                    <ul>
+                        <li><strong>Sustainability Driven Growth in Securitization</strong>
+                            <ul>
+                                <li>The energy transition is fueling <em>growth in green securitizations</em>, such as <em>green mortgages, EV loans, and clean infrastructure ABS</em></li>
+                                <li><strong>Opportunity:</strong> Investing in <em>senior green RMBS or EV-focused ABS</em> offers long-term upside while aligning with ESG mandates.  </li>
+                            </ul>
+                        </li>
+                        <li><strong>AI-Driven Efficiency in Structured Credit Markets</strong>
+                            <ul>
+                                <li>The use of AI and data analytics in underwriting, transparency, and surveillance of structured products enhances liquidity and risk assessment.</li>
+                                <li><strong>Opportunity:</strong> Innovative categories like <em>data center securitizations</em> and **technology infrastructure ABS** are emerging as stable, cash-flow-driven assets.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Emerging Market Dynamics-Tailwinds in Select Regions</strong>
+                            <ul>
+                                <li><strong>Linkage: </strong> Emerging markets (India, GCC) are benefitting from <em>trade diversification and monetary easing</em>, presenting opportunities for <em>EM-focused ABS and CLOs</em>.</li>
+                                <li><strong>Opportunity:</strong> Select exposure to EM securitizations can provide diversification and yield pickup as developed markets navigate economic slowdown risks.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <h3>Summary of Key Insights: </h3>
+                    <ul>
+                        <li><strong>Hidden Dependencies</strong>
+                            <ul>
+                                <li>Growing linkages between private credit funds, insurance companies, and structured credit markets create systemic risks that remain underappreciated. </li>
+                            </ul>
+                        </li>
+                        <li><strong>Sectoral Interplay</strong>
+                            <ul>
+                                <li>Weakness in office CRE can indirectly stress residential RMBS markets, while energy and climate trends impact industrial and auto ABS sectors.  </li>
+                            </ul>
+                        </li>
+                        <li><strong>Macroeconomic Risks</strong>
+                            <ul>
+                                <li>Uncertainty around interest rates and geopolitical disruptions pose significant, overlooked risks to refinancing dynamics and investor confidence.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Thematic Opportunities</strong>
+                            <ul>
+                                <li>ESG-driven securitizations, AI innovations, and EM credit resilience present forward-looking investment opportunities with diversification potential. </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Network Interdependency Graph</h2>
+        <div id="chart-spinner" class="spinner-border" role="status" style="display: none;">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="chart-container d-none" id="chart-container">
+            <figure id="figure">
+                <img src="./Images/Non-obvious-linkages-chart.png" alt="Sentiment and Consensus/Divergence Chart" style="display: none; max-width: 100%; height: auto;">
+            </figure>
+            <h3><strong>Network Graph: Key Insights</strong></h3>
+
+            <p>This graph incorporates nodes and interdependencies to reflect critical risks and opportunities within the credit and structured credit markets, specifically relevant to portfolio and risk managers. Key highlights:</p>
+            
+            <ol>
+                <li>
+                    <strong>Central Systemic Risks</strong>:  
+                    <ul>
+                        <li><strong>Regional Banks</strong>: Face refinancing exposure to <strong>CMBS Office</strong> while also under pressure from <strong>Climate Stress Testing</strong>, exacerbating CRE vulnerabilities.</li>
+                        <li><strong>CLO BB</strong>: Highly sensitive to both <strong>Private Credit Funds</strong> (loan supply) and rising <strong>Leveraged Loan Refinancing</strong> risks, reflecting heightened credit risk.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Policy Interconnections</strong>:  
+                    <ul>
+                        <li><strong>Fed Policy</strong>: Drives refinancing stress for leveraged loans, directly impacting <strong>CLO BB</strong> tranches.</li>
+                        <li><strong>ESG Regulations</strong>: Act as a <strong>regulatory driver</strong> for green securitizations while creating <strong>compliance costs</strong> for insurers.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Positive Assets Amid Negative Trends</strong>:  
+                    <ul>
+                        <li><strong>CMBS Industrial</strong>: Benefits from strong cash flows, making it a favored asset class for <strong>banks</strong> despite broader CMBS stress.</li>
+                        <li><strong>Green Securitizations</strong>: Grow due to regulatory tailwinds from <strong>ESG Regulations</strong>, creating opportunities for diversification.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Subprime RMBS Risks</strong>:  
+                    <ul>
+                        <li><strong>Insurance Companies</strong>: Hold significant exposure to <strong>Subprime RMBS</strong>, making them vulnerable to rising delinquencies, particularly in a slowing economy.</li>
+                    </ul>
+                </li>
+            </ol>
+            
+            <p>This expanded graph provides a clear, actionable map of <strong>systemic risks, emerging opportunities, and policy impacts</strong> across interconnected credit markets. It emphasizes how structural stress in <strong>CRE</strong>, <strong>CLO BB</strong>, and <strong>subprime RMBS</strong> can propagate through banks, insurers, and private credit funds, while policy shifts like ESG regulations create new opportunities for green securitizations.</p>            
+        </div>
+    </div>
+    <footer class="my-5 vh-100 d-flex align-items-center justify-content-center"></footer>
+        <h1 class="display-4">Designed by <a href="https://www.straive.com/" class="text-reset link-offset-3 link-underline link-underline-opacity-25">Straive</a></h1>
+      </footer>
+    </div>
+  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" type="module"></script>
+    <script src='https://cdn.jsdelivr.net/gh/FThompson/FormPersistence.js@2.0.6/form-persistence.min.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/@gramex/ui@0.3/dist/dark-theme.js" type="module"></script>
+    <script>
+        // Function to set light theme
+        function setLightTheme() {
+          document.documentElement.setAttribute('data-bs-theme', 'light');
+          updateThemeButtons('light');
+        }
+  
+        // Function to set dark theme
+        function setDarkTheme() {
+          document.documentElement.setAttribute('data-bs-theme', 'dark');
+          updateThemeButtons('dark');
+        }
+  
+        // Function to update theme button active states
+        function updateThemeButtons(activeTheme) {
+          const themeButtons = document.querySelectorAll('[data-bs-theme-value]');
+          themeButtons.forEach(button => {
+            if (button.getAttribute('data-bs-theme-value') === activeTheme) {
+              button.classList.add('active');
+            } else {
+              button.classList.remove('active');
+            }
+          });
+        }
+  
+        // Event listeners for theme buttons
+        document.addEventListener('DOMContentLoaded', () => {
+          const themeButtons = document.querySelectorAll('[data-bs-theme-value]');
+          
+          themeButtons.forEach(button => {
+            button.addEventListener('click', () => {
+              const theme = button.getAttribute('data-bs-theme-value');
+              
+              switch(theme) {
+                case 'light':
+                  setLightTheme();
+                  break;
+                case 'dark':
+                  setDarkTheme();
+                  break;
+                case 'auto':
+                  // Remove theme attribute to use system preference
+                  document.documentElement.removeAttribute('data-bs-theme');
+                  updateThemeButtons('auto');
+                  break;
+              }
+            });
+          });
+  
+          // Set light theme by default
+          setLightTheme();
+        });
+
+        // Show spinner and stream content for key insights
+        document.addEventListener('DOMContentLoaded', () => {
+            const spinner = document.getElementById('spinner');
+            const content = document.getElementById('key-insight-content');
+            const content2 = document.getElementById('key-insight-content-2');
+            const content3 = document.getElementById('key-insight-content-3');
+            // Show spinner
+            spinner.style.display = 'block';
+
+            // Hide spinner and show content after 3 seconds
+            setTimeout(() => {
+                spinner.style.display = 'none';
+                content.style.display = 'block';
+                content2.style.display = 'block';
+                content3.style.display = 'block';
+                // Stream content
+                const fullText = content.textContent;
+                const fullText2 = content3.textContent; // Get full text
+                content.innerHTML = '';
+                content3.innerHTML = ''; // Clear content for streaming effect
+                let index = 0;
+
+                const interval = setInterval(() => {
+                    if (index < fullText.length) {
+                        content.innerHTML += fullText.charAt(index);
+                        index++;
+                    } else {
+                        clearInterval(interval);
+                    }
+                }, Math.floor(Math.random() * (20 - 10 + 1)) + 10);
+                let index2 = 0;
+                const interval2 = setInterval(() => {
+                    if (index2 < fullText2.length){
+                        content3.innerHTML += fullText2.charAt(index2);
+                        index2++;
+                    }else{
+                        clearInterval(interval2);
+                        showAnalysisSection();
+                    }
+                }, Math.floor(Math.random() * (20 - 10 + 1)) + 10); // Adjust speed of streaming here
+            }, 4000); // 3 seconds
+        });
+
+        // Function to show analysis section after a spinner
+        function showAnalysisSection() {
+            const analysisSpinner = document.getElementById('analysis-spinner');
+            const analysisContent = document.getElementById('analysis-content');
+
+            // Show spinner
+            analysisSpinner.style.display = 'block';
+
+            // Hide spinner and show content after 5 seconds
+            setTimeout(() => {
+                analysisSpinner.style.display = 'none';
+                analysisContent.style.display = 'block';
+                // Show chart container spinner for 4 seconds
+                showChartSpinner();
+            }, 5000); // 5 seconds
+        }
+
+        // Function to show chart spinner
+        function showChartSpinner() {
+            const chartSpinner = document.getElementById('chart-spinner'); // Spinner for chart container
+            const chartImage = document.querySelector('.chart-container img'); // Image in chart container
+            const chartContainer = document.getElementById('chart-container');
+
+            // Show spinner
+            chartSpinner.style.display = 'block';
+
+            // Hide spinner and show image after 4 seconds
+            setTimeout(() => {
+                chartSpinner.style.display = 'none';
+                chartContainer.classList.remove('d-none');
+                // Show the image (make sure the image is initially hidden)
+                chartImage.style.display = 'block'; // Show the image
+            }, 4000); // 4 seconds
+        }
+      </script>
+</body>
+</html>

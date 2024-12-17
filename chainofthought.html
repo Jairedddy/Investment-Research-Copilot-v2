@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chain of Thought Analysis Framework</title>
+    <link rel="icon" href="https://raw.githubusercontent.com/gramener/assets/main/straive-favicon.svg">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        body {
+            font-size: 0.9rem;
+        }
+
+        .container {
+            max-width: max-content;
+            align-items: center;
+            margin: 40px auto;
+            padding: 40px;
+            background-color: white;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .text-container {
+            flex: 1;
+            margin-right: 40px;
+            max-width: 75%;
+        }
+
+        .chart-container {
+            flex: 1;
+            text-align: center;
+            max-width: 75%;
+            margin-top: 100px; /* Adjust this value to align with Framework Analysis */
+        }
+
+        .key-insight {
+            background-color: #edece8;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            border: 1px solid grey;
+        }
+
+        .key-insight h2 {
+            font-weight: bold;
+        }
+
+        .analysis-section {
+            margin-bottom: 40px;
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 600;
+            color: black;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+            text-align: center;
+            color: black;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #37474f;
+            padding-bottom: 15px;
+            color: black;
+        }
+
+        h3 {
+            font-size: 1.4em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            color: black;
+        }
+
+        h4 {
+            font-style: italic;
+            color: black;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-left: 20px;
+            color: black;
+        }
+        ul ul {
+            list-style-type: circle;
+            padding-left: 20px;
+            margin-left: 20px;
+        }
+
+        .analysis-section p {
+            color: black;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #37474f;
+            margin: 30px 0;
+        }
+        .navbar-brand{
+            font-size: 1.25rem;
+        }
+        .display-1{
+            font-size: 3rem;
+        }
+        
+        .table-container{
+            background-color: #f9f9f9;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+            overflow: hidden;
+        }
+
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td{
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+            transition: background-color 0.3s;
+        }
+
+        th{
+            background-color: #37474f;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        tr:hover{
+            background-color: #e0f7fa;
+        }
+
+        td{
+            background-color: #ffffff;
+            color: #333;
+        }
+
+        td strong{
+            color: #007bff;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #ffffff;
+        }
+
+        tr:hover {
+            background-color: #d1e7dd;
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark"">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/index.html"><b>Dashboard ></b> <a class="navbar-brand" href="chainofthought.html" style="text-decoration: underline;">Chain Of Thought</a></a>
+          <button disabled="true" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="nav-item dropdown ms-auto" role="group" aria-label="Toggle dark mode" title="Toggle Dark Mode">
+              <button class="dark-theme-toggle btn btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Toggle theme (light)">
+                <i class="bi bi-circle-half"></i> <span class="d-lg-none ms-2">Toggle theme</span>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><button class="dropdown-item active" data-bs-theme-value="light"><i class="me-2 bi bi-sun-fill"></i> Light</button></li>
+                <li><button class="dropdown-item" data-bs-theme-value="dark"><i class="me-2 bi bi-moon-stars-fill"></i> Dark</button></li>
+                <li><button class="dropdown-item"><i class="me-2 bi bi-circle-half"></i> Auto</button></li>
+              </ul>
+            </div>
+          </div>
+          <button class="btn btn-outline-light ms-2" onclick="window.location.href='https://docsearch.straivedemo.com/irc2/'">Chat with AI</button>          
+        </div>
+    </nav>
+    <h1 class="display-1 my-4 text-center">Chain of Thought Analysis Framework</h1>
+    <div class="container">
+        <div class="text-container">
+
+            <div class="key-insight">
+                <h2>Key Insight</h2>
+                <div id="spinner" class="spinner-border" role="status" style="display: none;">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <div id="key-insight-content" style="display: none;">
+                    <p><strong>The Emerging "Collateral Trifecta Risk" in Structured Credit: </strong>While analysts compartmentalize risks across structured credit—CLOs, CMBS, and RMBS—the reality is that <em>a convergence of risks across collateral types</em> is emerging. This "Collateral Trifecta Risk" has the potential to disrupt structured credit markets far more than isolated stress scenarios suggest:</p>
+                </div>
+                <ul id="key-insight-content-2" style="display: none; margin-top: 5px;">
+                    <li><strong>Shared Vulnerability to “Valuation Reflexivity”:</strong>
+                        <ul>
+                            <li>Office CRE repricing, home affordability pressures, and leveraged loan defaults share a common dynamic—asset devaluation exacerbates refinancing stress, which in turn drives further price declines. Analysts fail to recognize how this reflexivity could cascade across structured credit markets, particularly through interconnected investor bases.</li>
+                            <li><em>Example:</em> Declines in office property valuations undermine CMBS investor confidence, leading to liquidity tightening that spills into other sectors like RMBS and CLOs, where refinancing relies on similarly stressed conditions.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Cross-Market Illiquidity Amplification:</strong>
+                        <ul>
+                            <li>Heavy new issuance in CLOs and RMBS is being absorbed today, but any disruption—be it higher delinquencies or regulatory pressure—could freeze secondary liquidity across sectors. Analysts focus on market-specific risks without considering how liquidity stress in one asset class could amplify broader repricing across all structured credit segments.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Hidden Climate Risk Transmission:</strong>
+                        <ul>
+                            <li>Climate-related events (e.g., floods, fires) disproportionately affect property values in RMBS and CMBS collateral. However, leveraged loan issuers, especially in energy and infrastructure, also face heightened exposure. Analysts miss this <em>indirect climate risk transmission</em>, where regional disruptions ripple into corporate credit performance and, by extension, CLO collateral.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <div id="key-insight-content-3" style="display: none;">
+                    <p><strong>Strategic Implication: </strong>Portfolio managers must adopt a <em>cross-asset lens</em> to structured credit, stress-testing for scenarios where valuation declines, liquidity disruptions, and climate risks intersect across RMBS, CMBS, and CLO markets. By recognizing this "Collateral Trifecta Risk," managers can preempt systemic vulnerabilities that are being overlooked in siloed credit analyses and position portfolios defensively in exposed sectors while tactically reallocating toward resilient collateral pools (e.g., multifamily CRE, seasoned CRTs).</p>
+                </div>
+            </div>
+
+            <div class="analysis-section">
+                <h2>Framework Analysis</h2>
+                <div id="analysis-spinner" class="spinner-border" role="status" style="display: none;">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <div id="analysis-content" style="display: none;">
+                    <h3>Logical Gaps</h3>
+                    <ul>
+                        <li><strong>Office CMBS and Assumptions of “Selective Resilience”</strong>
+                            <ul>
+                                <li><strong>Issue:</strong> Analysts frequently cite the resilience of <em>high-quality office properties</em> within CMBS, despite acknowledging fundamental weakness in the broader office segment. However, these assumptions rely on opaque definitions of "quality" and overly optimistic expectations of refinancing conditions.</li>
+                                <li><strong>Blind Spot:</strong> There is little consideration of the <em>second-order effects</em>, such as rising interest rate pressures leading to tenant defaults or distressed asset sales, which could affect even high-quality properties.</li>
+                                <li><strong>Implication:</strong> Analysts underestimate systemic risks posed by widespread office loan defaults, particularly as valuations in the office CRE market continue to decline beyond initial forecasts.</li>
+                            </ul>
+                        </li>
+                        <li><strong>CLO Resilience Narrative—BB Tranches</strong>
+                            <ul>
+                                <li><strong>Issue:</strong> While analysts broadly agree that CLO <em>senior tranches</em> remain safe, many downplay the risks in BB-rated tranches. There’s a reliance on CLO structural protections without sufficiently addressing the rising downgrade-to-upgrade ratio of leveraged loans.</li>
+                                <li><strong>Blind Spot:</strong> The consensus assumes that CLO managers will manage defaults effectively, ignoring the growing <strong>liability management exercises</strong> and higher reinvestment hurdles.</li>
+                                <li><strong>Implication:</strong> BB tranches may experience unexpected principal losses if defaults exceed historical norms, a possibility that remains underexplored in analyst reports.</li>
+                            </ul>
+                        </li>
+                        <li><strong>RMBS Assumptions on Housing Equity Resilience</strong>
+                            <ul>
+                                <li><strong>Issue:</strong> Reports cite <em>strong homeowner equity</em> as a mitigating factor for non-agency RMBS risks. However, the underlying assumption of continued home price appreciation is tenuous, especially in a scenario where economic data softens further or unemployment rises.</li>
+                                <li><strong>Blind Spot:</strong> Analysts insufficiently model <em>affordability stress</em> among lower-income homeowners in non-QM segments, particularly with the impact of higher-for-longer interest rates.</li>
+                                <li><strong>Implication:</strong> Rising delinquencies in non-QM RMBS remain underappreciated, particularly in high-loan-to-value (LTV) deals issued post-2020.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <h3>Summary of Key Insights</h3>
+                    <ul>
+                        <li>Analysts display <strong>logical gaps</strong> in their treatment of office CMBS, BB-rated CLOs, and non-QM RMBS by underestimating systemic risks and second-order effects.</li>
+                        <li>Overlooked variables, such as <strong>issuance saturation, regulatory risks in private credit, and localized climate factors</strong>, pose underappreciated risks to structured credit.</li>
+                        <li>Inconsistent perspectives on <strong>CMBS spreads, CLO valuations, and non-QM RMBS strength</strong> reflect unresolved contradictions in analysts’ frameworks.</li>
+                    </ul>
+                    <p>This analysis highlights critical blind spots and areas where deeper scrutiny is required, particularly as market conditions evolve.</p>
+                </div>
+            </div>
+            <h2 class="text-center my-4">Significant Conclusions</h2><br>
+            <div id="table-spinner" class="spinner-border d-none" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <div class="table-container d-none">
+                <table border="1" cellspacing="0" cellpadding="8" id="fat-table" class="d-none">
+                    <thead>
+                        <tr>
+                            <th>Key Takeaway</th>
+                            <th>Context</th>
+                            <th>Impact Assessment</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>1. BB-Rated CLO Risks Underappreciated</strong></td>
+                            <td>Analysts focus on structural protections but overlook <strong>rising defaults</strong> in leveraged loans.</td>
+                            <td>BB-rated CLOs face significant <strong>mark-to-market losses</strong> if leveraged loan defaults increase further.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2. Overvaluation of Office CMBS Senior Tranches</strong></td>
+                            <td>Analysts assume safety in senior CMBS, but <strong>structural demand erosion</strong> and refinancing risks remain.</td>
+                            <td>Office-backed CMBS, even senior tranches, could see <strong>downgrades</strong> or <strong>unexpected impairments</strong>.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>3. Aircraft ABS—A Hidden Opportunity</strong></td>
+                            <td>Improving global air traffic (6% above 2019 levels) supports <strong>strong performance</strong> in aircraft ABS.</td>
+                            <td>Senior portions of aircraft ABS offer <strong>attractive yields</strong> and <strong>capital accretion</strong> with improving fundamentals.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>4. Climate Risk Underpricing in RMBS</strong></td>
+                            <td>Localized climate events (e.g., floods, fires) pose risks to <strong>RMBS collateral valuations</strong>, often ignored.</td>
+                            <td>Overlooked risks could result in <strong>regional delinquencies</strong> and unexpected <strong>valuation declines</strong>.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>5. Subprime RMBS Delinquencies Rising</strong></td>
+                            <td>Consumer stress, especially in <strong>lower-credit cohorts</strong>, drives delinquencies amid inflation and rate pressures.</td>
+                            <td>Subprime RMBS face <strong>spread widening</strong> and potential <strong>cash flow disruptions</strong> in the near term.</td>
+                        </tr>
+                    </tbody>
+                </table>                
+            </div>
+        </div>
+        </div>
+
+        <div class="chart-container d-none">
+            <div id="chart-spinner" class="spinner-border" role="status" style="display: none;">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <figure id="figure">
+                <img src="path/to/img" alt="Sentiment and Consensus/Divergence Chart" style="display: none;">
+                <figcaption>Sentiment and Consensus/Divergence Chart</figcaption>
+            </figure>
+        </div>
+    </div>
+    <footer class="my-5 vh-100 d-flex align-items-center justify-content-center"></footer>
+        <h1 class="display-4">Designed by <a href="https://www.straive.com/" class="text-reset link-offset-3 link-underline link-underline-opacity-25">Straive</a></h1>
+      </footer>
+    </div>
+  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" type="module"></script>
+    <script src='https://cdn.jsdelivr.net/gh/FThompson/FormPersistence.js@2.0.6/form-persistence.min.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/@gramex/ui@0.3/dist/dark-theme.js" type="module"></script>
+    <script>
+        // Function to set light theme
+        function setLightTheme() {
+          document.documentElement.setAttribute('data-bs-theme', 'light');
+          updateThemeButtons('light');
+        }
+  
+        // Function to set dark theme
+        function setDarkTheme() {
+          document.documentElement.setAttribute('data-bs-theme', 'dark');
+          updateThemeButtons('dark');
+        }
+  
+        // Function to update theme button active states
+        function updateThemeButtons(activeTheme) {
+          const themeButtons = document.querySelectorAll('[data-bs-theme-value]');
+          themeButtons.forEach(button => {
+            if (button.getAttribute('data-bs-theme-value') === activeTheme) {
+              button.classList.add('active');
+            } else {
+              button.classList.remove('active');
+            }
+          });
+        }
+  
+        // Event listeners for theme buttons
+        document.addEventListener('DOMContentLoaded', () => {
+          const themeButtons = document.querySelectorAll('[data-bs-theme-value]');
+          
+          themeButtons.forEach(button => {
+            button.addEventListener('click', () => {
+              const theme = button.getAttribute('data-bs-theme-value');
+              
+              switch(theme) {
+                case 'light':
+                  setLightTheme();
+                  break;
+                case 'dark':
+                  setDarkTheme();
+                  break;
+                case 'auto':
+                  // Remove theme attribute to use system preference
+                  document.documentElement.removeAttribute('data-bs-theme');
+                  updateThemeButtons('auto');
+                  break;
+              }
+            });
+          });
+  
+          // Set light theme by default
+          setLightTheme();
+        });
+
+        // Show spinner and stream content for key insights
+        document.addEventListener('DOMContentLoaded', () => {
+            const spinner = document.getElementById('spinner');
+            const content = document.getElementById('key-insight-content');
+            const content2 = document.getElementById('key-insight-content-2');
+            const content3 = document.getElementById('key-insight-content-3');
+
+            // Show spinner
+            spinner.style.display = 'block';
+
+            // Hide spinner and show content after 3 seconds
+            setTimeout(() => {
+                spinner.style.display = 'none';
+                content.style.display = 'block';
+                content2.style.display = 'block';
+                content3.style.display = 'block';
+                // Stream content
+                const fullText = content.textContent;
+                const fullText2 = content3.textContent; // Get full text
+                content.innerHTML = '';
+                content3.innerHTML = ''; // Clear content for streaming effect
+                let index = 0;
+
+                const interval = setInterval(() => {
+                    if (index < fullText.length) {
+                        content.innerHTML += fullText.charAt(index);
+                        index++;
+                    } else {
+                        clearInterval(interval);
+                    }
+                }, Math.floor(Math.random() * (20 - 10 + 1)) + 10);
+                
+                let index2 = 0;
+                const interval2 = setInterval(() => {
+                    if (index2 < fullText2.length){
+                        content3.innerHTML += fullText2.charAt(index2);
+                        index2++;
+                    }else{
+                        clearInterval(interval2);
+                        showAnalysisSection();
+                    }
+                }, Math.floor(Math.random() * (20 - 10 + 1)) + 10);
+                // Adjust speed of streaming here
+            }, 4000); // 3 seconds
+        });
+
+        // Show analysis section after a spinner
+        function showAnalysisSection() {
+            const analysisSpinner = document.getElementById('analysis-spinner');
+            const analysisContent = document.getElementById('analysis-content');
+
+            // Show spinner
+            analysisSpinner.style.display = 'block';
+
+            // Hide spinner and show content after 5 seconds
+            setTimeout(() => {
+                analysisSpinner.style.display = 'none';
+                analysisContent.style.display = 'block';
+                // Show table container spinner for 4 seconds
+                showTableSpinner();
+            }, 5000); // 5 seconds
+        }
+
+        // Function to show table spinner
+        function showTableSpinner() {
+            const tableSpinner = document.getElementById('table-spinner'); // Spinner for table container
+            const tableContainer = document.querySelector('.table-container'); // Table container
+            const table = document.getElementById('fat-table');
+
+            // Show spinner
+            tableSpinner.classList.remove('d-none');
+
+            // Hide spinner and show table content after 4 seconds
+            setTimeout(() => {
+                tableSpinner.classList.add('d-none');
+                tableContainer.classList.remove('d-none'); // Show the table container
+                // Show chart container spinner for 4 seconds
+                table.classList.remove('d-none');
+                showChartSpinner();
+            }, 4000); // 4 seconds
+        }
+
+        // Function to show chart spinner
+        function showChartSpinner() {
+            const chartSpinner = document.getElementById('chart-spinner'); // Spinner for chart container
+            const chartImage = document.querySelector('.chart-container img'); // Image in chart container
+
+            // Show spinner
+            chartSpinner.style.display = 'block';
+
+            // Hide spinner and show image after 4 seconds
+            setTimeout(() => {
+                chartSpinner.style.display = 'none';
+                // Show the image (make sure the image is initially hidden)
+                chartImage.style.display = 'block'; // Show the image
+            }, 4000); // 4 seconds
+        }
+      </script>
+</body>
+</html>
