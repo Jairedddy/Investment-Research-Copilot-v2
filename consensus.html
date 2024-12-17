@@ -31,7 +31,6 @@
 
         .chart-container {
             flex: 1;
-            text-align: center;
             max-width: 75%;
             margin-top: 100px; /* Adjust this value to align with Framework Analysis */
         }
@@ -111,6 +110,67 @@
         .display-1{
             font-size: 3rem;
         }
+
+        .table-container{
+            background-color: #f9f9f9;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+            overflow: hidden;
+        }
+
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td{
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+            transition: background-color 0.3s;
+        }
+
+        th{
+            background-color: #37474f;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        tr:hover{
+            background-color: #e0f7fa;
+        }
+
+        td{
+            background-color: #ffffff;
+            color: #333;
+        }
+
+        td strong{
+            color: #007bff;
+        }
+
+        th, td{
+            border: 1px solid #ddd;
+        }
+
+        tr:nth-child(even){
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(odd){
+            background-color: #ffffff;
+        }
+
+        tr:hover{
+            background-color: #d1e7dd;
+        }
+
     </style>
 </head>
 <body>
@@ -245,43 +305,43 @@
                     <tbody>
                       <tr>
                         <td><strong>Office CRE Refinancing Risk</strong></td>
-                        <td style="background-color: #878787;"><strong>1.0</strong></td>
+                        <td style="background-color: #878787;">1.0</td>
                         <td>Sharp sentiment decline in <strong>CMBS Office</strong> tranches</td>
                         <td>Office property valuations are deteriorating rapidly, amplifying default risks.</td>
                       </tr>
                       <tr>
                         <td><strong>Credit Quality Divergence</strong></td>
-                        <td style="background-color: #a1a1a1;"><strong>0.85</strong></td>
+                        <td style="background-color: #a1a1a1;">0.85</td>
                         <td>Positive views on <strong>CLO AAA</strong> vs. bearish on <strong>BB CLOs</strong></td>
                         <td>Reflects systemic bifurcation: AAA remains a safe haven, while BB faces default pressure.</td>
                       </tr>
                       <tr>
                         <td><strong>Macroeconomic Uncertainty</strong></td>
-                        <td style="background-color: #b6b8b6;"><strong>0.8</strong></td>
+                        <td style="background-color: #b6b8b6;">0.8</td>
                         <td>Higher-for-longer rates stress <strong>CLO BB</strong> refinancing</td>
                         <td>Macro volatility directly affects leverage, credit spreads, and refinancing.</td>
                       </tr>
                       <tr>
                         <td><strong>Consumer Credit Divergence</strong></td>
-                        <td style="background-color: #d9d9d9;"><strong>0.65</strong></td>
+                        <td style="background-color: #d9d9d9;">0.65</td>
                         <td>Rising delinquencies in <strong>subprime RMBS</strong></td>
                         <td>Indicates growing stress on lower-income borrowers, signaling cracks in consumer resilience.</td>
                       </tr>
                       <tr>
                         <td><strong>Green Securitizations</strong></td>
-                        <td style="background-color: #ebebeb;"><strong>0.55</strong></td>
+                        <td style="background-color: #ebebeb;">0.55</td>
                         <td>Growth in <strong>EV loan ABS</strong> and <strong>green RMBS</strong></td>
                         <td>ESG-driven securitizations are an emerging opportunity but lack immediacy.</td>
                       </tr>
                       <tr>
                         <td><strong>Private Credit Scrutiny</strong></td>
-                        <td style="background-color: #f5f2f2;"><strong>0.5</strong></td>
+                        <td style="background-color: #f5f2f2;">0.5</td>
                         <td>Regulatory oversight on <strong>private credit funds</strong></td>
                         <td>May constrain leveraged loan supply, affecting <strong>CLO pipelines</strong> and mezzanine risk.</td>
                       </tr>
                       <tr>
                         <td><strong>Resilience of Multifamily CRE</strong></td>
-                        <td style="background-color: white;"><strong>0.4</strong></td>
+                        <td style="background-color: white;">0.4</td>
                         <td>Positive sentiment on <strong>CMBS Industrial</strong> tranches</td>
                         <td>Industrial and multifamily CRE remain resilient, providing selective opportunities.</td>
                       </tr>
@@ -332,11 +392,9 @@
                       </ul>
                     </li>
                   </ol>                                   
-            </div>
         </div>
-
         <div class="chart-container">
-            <h2>Sentiment and Consensus/Divergence Chart</h2>
+            <h2 class="text-left my-4">Sentiment and Consensus/Divergence Chart</h2>
             <div id="chart-spinner" class="spinner-border" role="status" style="display: none;">
                 <span class="visually-hidden">Loading...</span>
             </div>
@@ -344,6 +402,7 @@
                 <img src="./Images/consensus.png" alt="Sentiment and Consensus/Divergence Chart" style="display: none; max-width: 100%; height: auto;">
             </figure>
         </div>
+    </div>
     </div>
     <footer class="my-5 vh-100 d-flex align-items-center justify-content-center"></footer>
         <h1 class="display-4">Designed by <a href="https://www.straive.com/" class="text-reset link-offset-3 link-underline link-underline-opacity-25">Straive</a></h1>

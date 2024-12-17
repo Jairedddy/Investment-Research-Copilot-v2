@@ -275,7 +275,7 @@
                 <div id="summary-content" style="display: none;">
                 </div>
             </div>        
-        <h2>Factor Analysis Table</h2><br>
+        <h2>Significant Conclusions</h2><br>
         <div id="table-spinner" class="spinner-border d-none" role="status">
             <span class="visually-hidden">Loading...</span>
         </div>
@@ -365,15 +365,6 @@
             </ul>                      
         </div>
 
-        <div class="chart-container d-none">
-            <div id="chart-spinner" class="spinner-border" role="status" style="display: none;">
-                <span class="visually-hidden">Loading...</span>
-            </div>
-            <figure id="figure">
-                <img src="path/to/img" alt="Sentiment and Consensus/Divergence Chart" style="display: none;">
-                <figcaption>Sentiment and Consensus/Divergence Chart</figcaption>
-            </figure>
-        </div>
     </div>
     <footer class="my-5 vh-100 d-flex align-items-center justify-content-center"></footer>
         <h1 class="display-4">Designed by <a href="https://www.straive.com/" class="text-reset link-offset-3 link-underline link-underline-opacity-25">Straive</a></h1>
@@ -512,21 +503,6 @@
             }, 5000);
         }
 
-        // Function to show chart spinner
-/*        function showChartSpinner() {
-            const chartSpinner = document.getElementById('chart-spinner'); // Spinner for chart container
-            const chartImage = document.querySelector('.chart-container img'); // Image in chart container
-
-            // Show spinner
-            chartSpinner.style.display = 'block';
-
-            // Hide spinner and show image after 4 seconds
-            setTimeout(() => {
-                chartSpinner.style.display = 'none';
-                // Show the image (make sure the image is initially hidden)
-                chartImage.style.display = 'block'; // Show the image
-            }, 4000); // 4 seconds
-        }*/
       </script>
 </body>
 </html>
